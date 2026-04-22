@@ -1,0 +1,1126 @@
+docker-kubernets output 
+
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ docker-compose down
+Stopping docker_redis_1 ... done
+Removing 1d376b8bc333_docker_backend_1 ... done
+Removing docker_redis_1                ... done
+Removing network docker_default
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ docker system prune -f
+Deleted Containers:
+7a012b9e5586a6f99c032c51645ba51a75199afb0f82c6124326ce35c1998095
+690a92c52f1d43e77d6a28cf6cf986a5e63a468c4ef796d181c4148a652ea154
+c8e6f981f4f3d2f0c3bf9ec293e7fdfce71641c444388c84a5676fff2f17a44a
+
+Deleted Networks:
+monitoring-network
+
+Deleted build cache objects:
+64f3mt3cid3fyomvlbiapp5lo
+f78hggxn3fikvfd2bwee4cudd
+wjplwmrziqvmfukatwa80q5kc
+7y1t1gxyf23bo4fa4gb4thyj7
+d8taj1gyg04o1luyihgsis1jz
+klwklg0aafd3xyz0z7zcjvson
+
+Total reclaimed space: 52.66MB
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$
+
+
+=============
+
+login as: akashb1408
+akashb1408@13.126.6.171's password:
+Welcome to Ubuntu 22.04.5 LTS (GNU/Linux 6.8.0-1051-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Tue Apr 21 19:03:44 UTC 2026
+
+  System load:  0.09               Processes:             115
+  Usage of /:   15.6% of 28.89GB   Users logged in:       0
+  Memory usage: 30%                IPv4 address for ens5: 172.18.5.9
+  Swap usage:   0%
+
+ * Ubuntu Pro delivers the most comprehensive open source security and
+   compliance features.
+
+   https://ubuntu.com/aws/pro
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+
+The list of available updates is more than a week old.
+To check for new updates run: sudo apt update
+
+Last login: Tue Apr 14 18:38:40 2026 from 122.164.84.39
+akashb1408@ip-172-18-5-9:~$ ls
+monitering  nginx.conf
+akashb1408@ip-172-18-5-9:~$ cd monitering/
+akashb1408@ip-172-18-5-9:~/monitering$ ls -la
+total 12
+drwxrwxr-x 3 akashb1408 akashb1408 4096 Apr 14 19:03 .
+drwxr-xr-x 4 akashb1408 akashb1408 4096 Apr 14 19:02 ..
+drwxrwxr-x 4 akashb1408 akashb1408 4096 Apr 14 19:03 promethus-grafana
+akashb1408@ip-172-18-5-9:~/monitering$ cd promethus-grafana/
+akashb1408@ip-172-18-5-9:~/monitering/promethus-grafana$ ls -la
+total 20
+drwxrwxr-x 4 akashb1408 akashb1408 4096 Apr 14 19:03 .
+drwxrwxr-x 3 akashb1408 akashb1408 4096 Apr 14 19:03 ..
+drwxrwxr-x 8 akashb1408 akashb1408 4096 Apr 14 19:11 .git
+-rw-rw-r-- 1 akashb1408 akashb1408 3424 Apr 14 19:03 README.md
+drwxrwxr-x 2 akashb1408 akashb1408 4096 Apr 14 19:11 docker
+akashb1408@ip-172-18-5-9:~/monitering/promethus-grafana$ cd ..
+akashb1408@ip-172-18-5-9:~/monitering$ cd ..
+akashb1408@ip-172-18-5-9:~$ ls -l
+total 8
+drwxrwxr-x 3 akashb1408 akashb1408 4096 Apr 14 19:03 monitering
+-rw-rw-r-- 1 akashb1408 akashb1408  374 Apr 14 09:43 nginx.conf
+akashb1408@ip-172-18-5-9:~$ mkdir -p sify-assesment
+akashb1408@ip-172-18-5-9:~$ cd sify-assesment/
+akashb1408@ip-172-18-5-9:~/sify-assesment$ ls -l
+total 0
+akashb1408@ip-172-18-5-9:~/sify-assesment$ docker-compose --version
+Command 'docker-compose' not found, but can be installed with:
+snap install docker          # version 28.4.0, or
+apt  install docker-compose  # version 1.29.2-1
+See 'snap info docker' for additional versions.
+akashb1408@ip-172-18-5-9:~/sify-assesment$ docker
+docker                         docker-proxy                   dockerd                        dockerd-rootless-setuptool.sh  dockerd-rootless.sh
+akashb1408@ip-172-18-5-9:~/sify-assesment$ docker
+docker                         docker-proxy                   dockerd                        dockerd-rootless-setuptool.sh  dockerd-rootless.sh
+akashb1408@ip-172-18-5-9:~/sify-assesment$ history
+    1  apt remove -y docker docker-engine docker.io containerd runc
+    2  sudo apt remove -y docker docker-engine docker.io containerd runc
+    3  apt remove -y docker docker-engine docker.io containerd runc
+    4  sudo apt remove -y docker docker-engine docker.io containerd runc
+    5  sudo apt update
+    6  sudo apt install -y ca-certificates curl gnupg lsb-release
+    7  sudo mkdir -p /etc/apt/keyrings
+    8  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+    9  sudo chmod a+r /etc/apt/keyrings/docker.gpg
+   10  echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
+   11  https://download.docker.com/linux/ubuntu \
+   12  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+   13  sudo apt update
+   14  sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+   15  sudo systemctl enable docker
+   16  systemctl status docker.service
+   17  sudo usermod -aG docker $USER
+   18  docker ps
+   19  id .
+   20  id akashb1408
+   21  docker ps -a
+   22  ls -l /var/run/docker.sock
+   23  exit
+   24  docker ps
+   25  docker ps -a
+   26  sudo init 0
+   27  docker ps
+   28  docker network ls
+   29  docker network create monitoring-network
+   30  docker network ls
+   31  docker run -d   --name prometheus   --network monitoring-net   -p 9090:9090   prom/prometheus
+   32  docker run -d   --name prometheus   --network monitoring-network   -p 9090:9090   prom/prometheus
+   33  docker ps -a
+   34  docker rm 09985bcc3c13
+   35  docker run -d   --name prometheus   --network monitoring-network   -p 9090:9090   prom/prometheus
+   36  docker ps
+   37  exit
+   38  docker ps
+   39  docker ps -a
+   40  vi nginx.conf
+   41  docker network ls
+   42  docker run -d   --name grafana   --network monitoring-network   -e GF_SERVER_ROOT_URL=%(protocol)s://%(domain)s/grafana/ \
+   43  docker run -d   --name grafana   --network monitoring-network   -e GF_SERVER_ROOT_URL=%(protocol)s://%(domain)s/grafana/
+   44  docker run -d   --name nginx-proxy   --network monitoring-network   -p 80:80   -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf:ro   nginx
+   45  docker ps -a
+   46  docker ps
+   47  docker run -d   --name grafana   --network monitoring-network   -e "GF_SERVER_ROOT_URL=%(protocol)s://%(domain)s/grafana/"   -e "GF_SERVER_SERVE_FROM_SUB_PATH=true"   grafana/grafana
+   48  df -Th
+   49  docker ps
+   50  curl ifconfig.me
+   51  docker ps
+   52  docker ps -a
+   53  docker start f47f857b78cc
+   54  docker start c8e6f981f4f3
+   55  docker ps
+   56  docker logs f47f857b78cc
+   57  docker exec -it f47f857b78cc
+   58  systemctl status nginx
+   59  less /etc/nginx/nginx.conf
+   60  ls
+   61  less nginx.conf
+   62  exit
+   63  docker ps
+   64  docker ps -a
+   65  docker logs nginx-proxy
+   66  ls
+   67  >nginx.conf
+   68  vi nginx.conf
+   69  docker rm f47f857b78cc
+   70  docker run -d   --name nginx-proxy   --network monitoring-network   -p 80:80   -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf:ro   nginx
+   71  docker ps
+   72  curl ifconfig.me
+   73  history
+   74  curl ifconfig.me
+   75  docker stop grafana
+   76  docker rm grafana
+   77  docker run -d   --name grafana   --network monitoring-network   -e GF_SERVER_ROOT_URL=http://akashlab.site/grafana/   -e GF_SERVER_SERVE_FROM_SUB_PATH=true   grafana/grafana
+   78  docker ps
+   79  vi nginx.conf
+   80  docker rm nginx-proxy
+   81  docker stop nginx-proxy
+   82  docker rm nginx-proxy
+   83  docker run -d   --name nginx-proxy   --network monitoring-network   -p 80:80   -v $(pwd)/nginx.conf:/etc/nginx/nginx.conf:ro   nginx
+   84  docker restart grafana
+   85  docker restart nginx
+   86  docker restart nginx-proxy
+   87  docker restart grafana
+   88  sudo init 0
+   89  ls
+   90  cat nginx.conf
+   91  history
+   92  docker ps
+   93  curl ifconfig.me
+   94  ls -l
+   95  mkdir -p monitering
+   96  cd monitering/
+   97  ls -l
+   98  git clone https://github.com/akashB-1481/promethus-grafana.git
+   99  ls
+  100  cd promethus-grafana/
+  101  ls
+  102  cd docker/
+  103  ls -l
+  104  docker compose up
+  105  cd ../..
+  106  ls
+  107  git pull
+  108  cd promethus-grafana/
+  109  git pull
+  110  cd docker/
+  111  docker compose up
+  112  docker network ls
+  113  cd ..
+  114  git pull
+  115  cd docker/
+  116  docker compose up
+  117  cd ..
+  118  git pull
+  119  cd docker/
+  120  docker compose up
+  121  docker ps
+  122  docker compose down
+  123  docker compose up -d
+  124  docker ps
+  125  df -Th
+  126  docker compose down
+  127  sudo init 0
+  128  ls
+  129  cd monitering/
+  130  ls -la
+  131  cd promethus-grafana/
+  132  ls -la
+  133  cd ..
+  134  ls -l
+  135  mkdir -p sify-assesment
+  136  cd sify-assesment/
+  137  ls -l
+  138  docker-compose --version
+  139  history
+akashb1408@ip-172-18-5-9:~/sify-assesment$ sudo apt install docker-compose
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  python3-docker python3-dockerpty python3-docopt python3-dotenv python3-texttable python3-websocket
+Recommended packages:
+  docker.io
+The following NEW packages will be installed:
+  docker-compose python3-docker python3-dockerpty python3-docopt python3-dotenv python3-texttable python3-websocket
+0 upgraded, 7 newly installed, 0 to remove and 0 not upgraded.
+Need to get 290 kB of archives.
+After this operation, 1545 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 python3-websocket all 1.2.3-1 [34.7 kB]
+Get:2 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 python3-docker all 5.0.3-1 [89.3 kB]
+Get:3 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 python3-dockerpty all 0.4.1-2 [11.1 kB]
+Get:4 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 python3-docopt all 0.6.2-4 [26.9 kB]
+Get:5 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 python3-dotenv all 0.19.2-1 [20.5 kB]
+Get:6 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 python3-texttable all 1.6.4-1 [11.4 kB]
+Get:7 http://ap-south-1.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 docker-compose all 1.29.2-1 [95.8 kB]
+Fetched 290 kB in 0s (11.1 MB/s)
+Selecting previously unselected package python3-websocket.
+(Reading database ... 66322 files and directories currently installed.)
+Preparing to unpack .../0-python3-websocket_1.2.3-1_all.deb ...
+Unpacking python3-websocket (1.2.3-1) ...
+Selecting previously unselected package python3-docker.
+Preparing to unpack .../1-python3-docker_5.0.3-1_all.deb ...
+Unpacking python3-docker (5.0.3-1) ...
+Selecting previously unselected package python3-dockerpty.
+Preparing to unpack .../2-python3-dockerpty_0.4.1-2_all.deb ...
+Unpacking python3-dockerpty (0.4.1-2) ...
+Selecting previously unselected package python3-docopt.
+Preparing to unpack .../3-python3-docopt_0.6.2-4_all.deb ...
+Unpacking python3-docopt (0.6.2-4) ...
+Selecting previously unselected package python3-dotenv.
+Preparing to unpack .../4-python3-dotenv_0.19.2-1_all.deb ...
+Unpacking python3-dotenv (0.19.2-1) ...
+Selecting previously unselected package python3-texttable.
+Preparing to unpack .../5-python3-texttable_1.6.4-1_all.deb ...
+Unpacking python3-texttable (1.6.4-1) ...
+Selecting previously unselected package docker-compose.
+Preparing to unpack .../6-docker-compose_1.29.2-1_all.deb ...
+Unpacking docker-compose (1.29.2-1) ...
+Setting up python3-dotenv (0.19.2-1) ...
+Setting up python3-texttable (1.6.4-1) ...
+Setting up python3-docopt (0.6.2-4) ...
+Setting up python3-websocket (1.2.3-1) ...
+Setting up python3-dockerpty (0.4.1-2) ...
+Setting up python3-docker (5.0.3-1) ...
+Setting up docker-compose (1.29.2-1) ...
+Processing triggers for man-db (2.10.2-1) ...
+Scanning processes...
+Scanning linux images...
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+akashb1408@ip-172-18-5-9:~/sify-assesment$ docker-compose --version
+docker-compose version 1.29.2, build unknown
+akashb1408@ip-172-18-5-9:~/sify-assesment$ git clone https://github.com/akashB-1481/sify-assesment.git
+Cloning into 'sify-assesment'...
+remote: Enumerating objects: 18, done.
+remote: Counting objects: 100% (18/18), done.
+remote: Compressing objects: 100% (16/16), done.
+remote: Total 18 (delta 1), reused 15 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (18/18), 4.33 KiB | 1.08 MiB/s, done.
+Resolving deltas: 100% (1/1), done.
+akashb1408@ip-172-18-5-9:~/sify-assesment$ cd sify-assesment/
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment$ ls
+README.md  docker
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment$ cd docker/
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ ls
+backend  docker-compose.yaml  nginx
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ docker-compose up --build
+Creating network "docker_default" with the default driver
+Pulling redis (redis:alpine)...
+alpine: Pulling from library/redis
+4bf21468cbaa: Pull complete
+6a0ac1617861: Pull complete
+d4840e7707ec: Pull complete
+c720a707c9da: Pull complete
+15c77f17eed6: Pull complete
+7efd7d34366c: Pull complete
+4f4fb700ef54: Pull complete
+9fcfc18b1a4b: Download complete
+8172c7fba114: Download complete
+Digest: sha256:c5e375abb885e6b2021c0377879e4890bf76f9065b8922ffc113f2b226b9fc17
+Status: Downloaded newer image for redis:alpine
+Building backend
+[+] Building 13.1s (9/9) FINISHED                                                                                                                                             docker:default
+ => [internal] load build definition from dockerfile                                                                                                                                    0.0s
+ => => transferring dockerfile: 141B                                                                                                                                                    0.0s
+ => [internal] load metadata for docker.io/library/python:3.9-slim                                                                                                                      2.4s
+ => [internal] load .dockerignore                                                                                                                                                       0.0s
+ => => transferring context: 2B                                                                                                                                                         0.0s
+ => [1/4] FROM docker.io/library/python:3.9-slim@sha256:2d97f6910b16bd338d3060f261f53f144965f755599aab1acda1e13cf1731b1b                                                                3.3s
+ => => resolve docker.io/library/python:3.9-slim@sha256:2d97f6910b16bd338d3060f261f53f144965f755599aab1acda1e13cf1731b1b                                                                0.0s
+ => => sha256:ea56f685404adf81680322f152d2cfec62115b30dda481c2c450078315beb508 251B / 251B                                                                                              0.5s
+ => => sha256:fc74430849022d13b0d44b8969a953f842f59c6e9d1a0c2c83d710affa286c08 13.88MB / 13.88MB                                                                                        0.9s
+ => => sha256:b3ec39b36ae8c03a3e09854de4ec4aa08381dfed84a9daa075048c2e3df3881d 1.29MB / 1.29MB                                                                                          1.0s
+ => => sha256:38513bd7256313495cdd83b3b0915a633cfa475dc2a07072ab2c8d191020ca5d 29.78MB / 29.78MB                                                                                        1.3s
+ => => extracting sha256:38513bd7256313495cdd83b3b0915a633cfa475dc2a07072ab2c8d191020ca5d                                                                                               1.1s
+ => => extracting sha256:b3ec39b36ae8c03a3e09854de4ec4aa08381dfed84a9daa075048c2e3df3881d                                                                                               0.1s
+ => => extracting sha256:fc74430849022d13b0d44b8969a953f842f59c6e9d1a0c2c83d710affa286c08                                                                                               0.7s
+ => => extracting sha256:ea56f685404adf81680322f152d2cfec62115b30dda481c2c450078315beb508                                                                                               0.0s
+ => [internal] load build context                                                                                                                                                       0.1s
+ => => transferring context: 457B                                                                                                                                                       0.0s
+ => [2/4] WORKDIR /app                                                                                                                                                                  0.1s
+ => [3/4] COPY app.py .                                                                                                                                                                 0.0s
+ => [4/4] RUN pip install flask redis                                                                                                                                                   5.4s
+ => exporting to image                                                                                                                                                                  1.6s
+ => => exporting layers                                                                                                                                                                 1.0s
+ => => exporting manifest sha256:d0e476fd8da2f81e07b062c7729604f7d2d1de48b71d74006d85b036c952d012                                                                                       0.0s
+ => => exporting config sha256:049af3a762446511d6a796b8fe50893b22c32c49be58bb230ac9e3e1f3cb41a1                                                                                         0.0s
+ => => exporting attestation manifest sha256:d12a0b83b69d29452c9c34d537e549564a75e8c227f8d55ddd3b1632b62e09a8                                                                           0.0s
+ => => exporting manifest list sha256:dade3702da9a3c15fede60a335507cdc35f545192c20f6e8c87e974a867d1d7b                                                                                  0.0s
+ => => naming to docker.io/library/docker_backend:latest                                                                                                                                0.0s
+ => => unpacking to docker.io/library/docker_backend:latest                                                                                                                             0.4s
+Building frontend
+[+] Building 6.5s (8/8) FINISHED                                                                                                                                              docker:default
+ => [internal] load build definition from dockerfile                                                                                                                                    0.0s
+ => => transferring dockerfile: 144B                                                                                                                                                    0.0s
+ => [internal] load metadata for docker.io/library/nginx:alpine                                                                                                                         3.2s
+ => [internal] load .dockerignore                                                                                                                                                       0.0s
+ => => transferring context: 2B                                                                                                                                                         0.0s
+ => [1/3] FROM docker.io/library/nginx:alpine@sha256:5616878291a2eed594aee8db4dade5878cf7edcb475e59193904b198d9b830de                                                                   2.6s
+ => => resolve docker.io/library/nginx:alpine@sha256:5616878291a2eed594aee8db4dade5878cf7edcb475e59193904b198d9b830de                                                                   0.0s
+ => => sha256:612c0c1df4c55a0bf145f84df03cb28de505e6a52fb8e49c9da7b143fc00ad2d 20.25MB / 20.25MB                                                                                        0.7s
+ => => sha256:4a8b0b2a5b1937755263ac7ac4ee26db2906c13a5d70f1fb1875ba8e370cdd8f 1.40kB / 1.40kB                                                                                          0.8s
+ => => sha256:453da7dbc73e7338c4e201ec3f3c4a5f7751adbf5a6f127792c1cd001a780721 1.21kB / 1.21kB                                                                                          0.9s
+ => => sha256:781ff50d2644f74714c0d5a4ffa3447bbfd4b293cfb1dc6a637722ae24c89241 404B / 404B                                                                                              1.0s
+ => => sha256:583599bb7d382e9e986a9ff65204981307bfa71670a29f4190eedae93c4858be 627B / 627B                                                                                              0.5s
+ => => sha256:aee4e54b3865ee4d98545b6b49f9e8ab3b9b6ed114a2eafedc7a22e984ea5a68 956B / 956B                                                                                              0.6s
+ => => sha256:82736a35d0e7f1309edc13d09115410b81542cf8b91afff80deeace02b6f2f26 1.87MB / 1.87MB                                                                                          0.5s
+ => => extracting sha256:82736a35d0e7f1309edc13d09115410b81542cf8b91afff80deeace02b6f2f26                                                                                               0.1s
+ => => extracting sha256:583599bb7d382e9e986a9ff65204981307bfa71670a29f4190eedae93c4858be                                                                                               0.0s
+ => => extracting sha256:aee4e54b3865ee4d98545b6b49f9e8ab3b9b6ed114a2eafedc7a22e984ea5a68                                                                                               0.0s
+ => => extracting sha256:781ff50d2644f74714c0d5a4ffa3447bbfd4b293cfb1dc6a637722ae24c89241                                                                                               0.0s
+ => => extracting sha256:453da7dbc73e7338c4e201ec3f3c4a5f7751adbf5a6f127792c1cd001a780721                                                                                               0.0s
+ => => extracting sha256:4a8b0b2a5b1937755263ac7ac4ee26db2906c13a5d70f1fb1875ba8e370cdd8f                                                                                               0.0s
+ => => extracting sha256:612c0c1df4c55a0bf145f84df03cb28de505e6a52fb8e49c9da7b143fc00ad2d                                                                                               0.6s
+ => [internal] load build context                                                                                                                                                       0.1s
+ => => transferring context: 837B                                                                                                                                                       0.0s
+ => [2/3] COPY nginx.conf /etc/nginx/nginx.conf                                                                                                                                         0.1s
+ => [3/3] COPY index.html /usr/share/nginx/html/index.html                                                                                                                              0.1s
+ => exporting to image                                                                                                                                                                  0.3s
+ => => exporting layers                                                                                                                                                                 0.1s
+ => => exporting manifest sha256:34b00295489a2f34f8871e4bb24954f450e4c0df78cb963b3a5c96e06138d4aa                                                                                       0.0s
+ => => exporting config sha256:d5f53f293f9df318bbf90f501b4b1bc42ef65322d0c6485313438037416fc09f                                                                                         0.0s
+ => => exporting attestation manifest sha256:9ad1aeed9a8edabc6a45b8554c158391688b3c602b289d370559c1f8b1a0546c                                                                           0.0s
+ => => exporting manifest list sha256:8ecbd030d59466bba5befd7f554e00ce222dfb008d27efb25a9bb53ac25f251f                                                                                  0.0s
+ => => naming to docker.io/library/docker_frontend:latest                                                                                                                               0.0s
+ => => unpacking to docker.io/library/docker_frontend:latest                                                                                                                            0.1s
+Creating docker_redis_1 ... done
+Creating docker_backend_1 ... error
+
+ERROR: for docker_backend_1  Cannot start service backend: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: error during container init: exec: "pyhton": executable file not found in $PATH
+
+ERROR: for backend  Cannot start service backend: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: error during container init: exec: "pyhton": executable file not found in $PATH
+ERROR: Encountered errors while bringing up the project.
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ cd backend/
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker/backend$ ls
+app.py  dockerfile
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker/backend$ cd ..
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ ls
+backend  docker-compose.yaml  nginx
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ cat backend/dockerfile
+FROM python:3.9-slim
+WORKDIR /app
+COPY app.py .
+RUN pip install flask redis
+CMD [ "pyhton" , "app.py" ]akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ cd ../..
+akashb1408@ip-172-18-5-9:~/sify-assesment$ ls
+sify-assesment
+akashb1408@ip-172-18-5-9:~/sify-assesment$ git pull
+fatal: not a git repository (or any of the parent directories): .git
+akashb1408@ip-172-18-5-9:~/sify-assesment$ cd sify-assesment/
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment$ git pull
+remote: Enumerating objects: 10, done.
+remote: Counting objects: 100% (10/10), done.
+remote: Compressing objects: 100% (4/4), done.
+remote: Total 6 (delta 2), reused 6 (delta 2), pack-reused 0 (from 0)
+Unpacking objects: 100% (6/6), 720 bytes | 720.00 KiB/s, done.
+From https://github.com/akashB-1481/sify-assesment
+   c360f18..86c7eba  main       -> origin/main
+Updating c360f18..86c7eba
+Fast-forward
+ docker/README.md          | 32 ++++++++++++++++++++++++++++++++
+ docker/backend/dockerfile |  2 +-
+ 2 files changed, 33 insertions(+), 1 deletion(-)
+ create mode 100644 docker/README.md
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment$ ls
+README.md  docker
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment$ cd docker/
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ ls
+README.md  backend  docker-compose.yaml  nginx
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ docker-compose up --build
+Building backend
+[+] Building 1.5s (9/9) FINISHED                                                                                                                                              docker:default
+ => [internal] load build definition from dockerfile                                                                                                                                    0.0s
+ => => transferring dockerfile: 141B                                                                                                                                                    0.0s
+ => [internal] load metadata for docker.io/library/python:3.9-slim                                                                                                                      1.2s
+ => [internal] load .dockerignore                                                                                                                                                       0.0s
+ => => transferring context: 2B                                                                                                                                                         0.0s
+ => [1/4] FROM docker.io/library/python:3.9-slim@sha256:2d97f6910b16bd338d3060f261f53f144965f755599aab1acda1e13cf1731b1b                                                                0.0s
+ => => resolve docker.io/library/python:3.9-slim@sha256:2d97f6910b16bd338d3060f261f53f144965f755599aab1acda1e13cf1731b1b                                                                0.0s
+ => [internal] load build context                                                                                                                                                       0.0s
+ => => transferring context: 28B                                                                                                                                                        0.0s
+ => CACHED [2/4] WORKDIR /app                                                                                                                                                           0.0s
+ => CACHED [3/4] COPY app.py .                                                                                                                                                          0.0s
+ => CACHED [4/4] RUN pip install flask redis                                                                                                                                            0.0s
+ => exporting to image                                                                                                                                                                  0.1s
+ => => exporting layers                                                                                                                                                                 0.0s
+ => => exporting manifest sha256:5b6fcdb51e23813efc6983ccbb98732a0104f08e937390997d34fc6b6b3313c4                                                                                       0.0s
+ => => exporting config sha256:f3f0dc781ce82d7cd7b0335c479336abec9214ff9eb6c71d1abb983c111618bf                                                                                         0.0s
+ => => exporting attestation manifest sha256:666a9b86030a6eba987c796205bbca5eba09e68a85e590c1364db19d9ebef1a6                                                                           0.0s
+ => => exporting manifest list sha256:842f44f8802e1b7e43e7a303e80f5583c65946d4635ed37f6fdf90412b560881                                                                                  0.0s
+ => => naming to docker.io/library/docker_backend:latest                                                                                                                                0.0s
+ => => unpacking to docker.io/library/docker_backend:latest                                                                                                                             0.0s
+Building frontend
+[+] Building 1.5s (8/8) FINISHED                                                                                                                                              docker:default
+ => [internal] load build definition from dockerfile                                                                                                                                    0.0s
+ => => transferring dockerfile: 144B                                                                                                                                                    0.0s
+ => [internal] load metadata for docker.io/library/nginx:alpine                                                                                                                         1.2s
+ => [internal] load .dockerignore                                                                                                                                                       0.0s
+ => => transferring context: 2B                                                                                                                                                         0.0s
+ => [1/3] FROM docker.io/library/nginx:alpine@sha256:5616878291a2eed594aee8db4dade5878cf7edcb475e59193904b198d9b830de                                                                   0.0s
+ => => resolve docker.io/library/nginx:alpine@sha256:5616878291a2eed594aee8db4dade5878cf7edcb475e59193904b198d9b830de                                                                   0.0s
+ => [internal] load build context                                                                                                                                                       0.0s
+ => => transferring context: 62B                                                                                                                                                        0.0s
+ => CACHED [2/3] COPY nginx.conf /etc/nginx/nginx.conf                                                                                                                                  0.0s
+ => CACHED [3/3] COPY index.html /usr/share/nginx/html/index.html                                                                                                                       0.0s
+ => exporting to image                                                                                                                                                                  0.1s
+ => => exporting layers                                                                                                                                                                 0.0s
+ => => exporting manifest sha256:34b00295489a2f34f8871e4bb24954f450e4c0df78cb963b3a5c96e06138d4aa                                                                                       0.0s
+ => => exporting config sha256:d5f53f293f9df318bbf90f501b4b1bc42ef65322d0c6485313438037416fc09f                                                                                         0.0s
+ => => exporting attestation manifest sha256:bac74cbbc90006a0ac1ae72f33c7da51b9baef53693fd17382f67d992567694e                                                                           0.0s
+ => => exporting manifest list sha256:13fe560315b37d4cb0eaecc10b845783119b9dc282148e9dff8829a06c5d781c                                                                                  0.0s
+ => => naming to docker.io/library/docker_frontend:latest                                                                                                                               0.0s
+ => => unpacking to docker.io/library/docker_frontend:latest                                                                                                                            0.0s
+docker_redis_1 is up-to-date
+Recreating docker_backend_1 ... error
+
+ERROR: for docker_backend_1  No such image: sha256:dade3702da9a3c15fede60a335507cdc35f545192c20f6e8c87e974a867d1d7b
+
+ERROR: for backend  No such image: sha256:dade3702da9a3c15fede60a335507cdc35f545192c20f6e8c87e974a867d1d7b
+ERROR: The image for the service you're trying to recreate has been removed. If you continue, volume data could be lost. Consider backing up your data before continuing.
+
+Continue with the new image? [yN]n
+ERROR: No such image: sha256:dade3702da9a3c15fede60a335507cdc35f545192c20f6e8c87e974a867d1d7b
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ docker-compose down
+Stopping docker_redis_1 ... done
+Removing 1d376b8bc333_docker_backend_1 ... done
+Removing docker_redis_1                ... done
+Removing network docker_default
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ docker system prune -f
+Deleted Containers:
+7a012b9e5586a6f99c032c51645ba51a75199afb0f82c6124326ce35c1998095
+690a92c52f1d43e77d6a28cf6cf986a5e63a468c4ef796d181c4148a652ea154
+c8e6f981f4f3d2f0c3bf9ec293e7fdfce71641c444388c84a5676fff2f17a44a
+
+Deleted Networks:
+monitoring-network
+
+Deleted build cache objects:
+64f3mt3cid3fyomvlbiapp5lo
+f78hggxn3fikvfd2bwee4cudd
+wjplwmrziqvmfukatwa80q5kc
+7y1t1gxyf23bo4fa4gb4thyj7
+d8taj1gyg04o1luyihgsis1jz
+klwklg0aafd3xyz0z7zcjvson
+
+Total reclaimed space: 52.66MB
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ docker-compose up --build
+Creating network "docker_default" with the default driver
+Building backend
+[+] Building 1.1s (9/9) FINISHED                                                                                                                                              docker:default
+ => [internal] load build definition from dockerfile                                                                                                                                    0.0s
+ => => transferring dockerfile: 141B                                                                                                                                                    0.0s
+ => [internal] load metadata for docker.io/library/python:3.9-slim                                                                                                                      0.7s
+ => [internal] load .dockerignore                                                                                                                                                       0.0s
+ => => transferring context: 2B                                                                                                                                                         0.0s
+ => [1/4] FROM docker.io/library/python:3.9-slim@sha256:2d97f6910b16bd338d3060f261f53f144965f755599aab1acda1e13cf1731b1b                                                                0.0s
+ => => resolve docker.io/library/python:3.9-slim@sha256:2d97f6910b16bd338d3060f261f53f144965f755599aab1acda1e13cf1731b1b                                                                0.0s
+ => [internal] load build context                                                                                                                                                       0.0s
+ => => transferring context: 457B                                                                                                                                                       0.0s
+ => CACHED [2/4] WORKDIR /app                                                                                                                                                           0.0s
+ => CACHED [3/4] COPY app.py .                                                                                                                                                          0.0s
+ => CACHED [4/4] RUN pip install flask redis                                                                                                                                            0.0s
+ => exporting to image                                                                                                                                                                  0.1s
+ => => exporting layers                                                                                                                                                                 0.0s
+ => => exporting manifest sha256:5b6fcdb51e23813efc6983ccbb98732a0104f08e937390997d34fc6b6b3313c4                                                                                       0.0s
+ => => exporting config sha256:f3f0dc781ce82d7cd7b0335c479336abec9214ff9eb6c71d1abb983c111618bf                                                                                         0.0s
+ => => exporting attestation manifest sha256:200ca4f1eb8a272ad3b0f3b9a12a5048fdb838fe3e807f09165476bbb75de393                                                                           0.0s
+ => => exporting manifest list sha256:b83787fff605040e2e1e64dce2d91c0b022072cb6bce936ed58feec3884fbfb1                                                                                  0.0s
+ => => naming to docker.io/library/docker_backend:latest                                                                                                                                0.0s
+ => => unpacking to docker.io/library/docker_backend:latest                                                                                                                             0.0s
+Building frontend
+[+] Building 1.4s (8/8) FINISHED                                                                                                                                              docker:default
+ => [internal] load build definition from dockerfile                                                                                                                                    0.0s
+ => => transferring dockerfile: 144B                                                                                                                                                    0.0s
+ => [internal] load metadata for docker.io/library/nginx:alpine                                                                                                                         0.7s
+ => [internal] load .dockerignore                                                                                                                                                       0.0s
+ => => transferring context: 2B                                                                                                                                                         0.0s
+ => [1/3] FROM docker.io/library/nginx:alpine@sha256:5616878291a2eed594aee8db4dade5878cf7edcb475e59193904b198d9b830de                                                                   0.1s
+ => => resolve docker.io/library/nginx:alpine@sha256:5616878291a2eed594aee8db4dade5878cf7edcb475e59193904b198d9b830de                                                                   0.0s
+ => [internal] load build context                                                                                                                                                       0.0s
+ => => transferring context: 837B                                                                                                                                                       0.0s
+ => [2/3] COPY nginx.conf /etc/nginx/nginx.conf                                                                                                                                         0.0s
+ => [3/3] COPY index.html /usr/share/nginx/html/index.html                                                                                                                              0.1s
+ => exporting to image                                                                                                                                                                  0.3s
+ => => exporting layers                                                                                                                                                                 0.1s
+ => => exporting manifest sha256:88b0905f371c34397ff6ed35305c3269f044ed1cfdb07b2071cfb374048f625b                                                                                       0.0s
+ => => exporting config sha256:bce2272dc29e7e34703de0b66c1c395a6f4a736bdf8c9127a85654c9004cda85                                                                                         0.0s
+ => => exporting attestation manifest sha256:0dc80c9b1f58c41aa1b1a05862ed734eda81b1ad62b6f7c774b4f5423b00315c                                                                           0.0s
+ => => exporting manifest list sha256:a784880f657b125328cdfaded307238e0690651fb703a17933930ca10d4f83bd                                                                                  0.0s
+ => => naming to docker.io/library/docker_frontend:latest                                                                                                                               0.0s
+ => => unpacking to docker.io/library/docker_frontend:latest                                                                                                                            0.0s
+Creating docker_redis_1 ... done
+Creating docker_backend_1 ... done
+Creating docker_frontend_1 ... done
+Attaching to docker_redis_1, docker_backend_1, docker_frontend_1
+backend_1   |   File "/app/app.py", line 1
+frontend_1  | /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+frontend_1  | /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+backend_1   |     from flask import Flask jsonify
+backend_1   |                             ^
+redis_1     | Starting Redis Server
+frontend_1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+redis_1     | 1:C 21 Apr 2026 19:44:53.326 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+redis_1     | 1:C 21 Apr 2026 19:44:53.328 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+redis_1     | 1:C 21 Apr 2026 19:44:53.328 * Redis version=8.6.2, bits=64, commit=00000000, modified=1, pid=1, just started
+redis_1     | 1:C 21 Apr 2026 19:44:53.328 * Configuration loaded
+backend_1   | SyntaxError: invalid syntax
+redis_1     | 1:M 21 Apr 2026 19:44:53.328 * Increased maximum number of open files to 10032 (it was originally set to 1024).
+redis_1     | 1:M 21 Apr 2026 19:44:53.329 * monotonic clock: POSIX clock_gettime
+redis_1     | 1:M 21 Apr 2026 19:44:53.330 * Running mode=standalone, port=6379.
+redis_1     | 1:M 21 Apr 2026 19:44:53.331 * <bf> RedisBloom version 8.6.0 (Git=unknown)
+redis_1     | 1:M 21 Apr 2026 19:44:53.331 * <bf> Registering configuration options: [
+redis_1     | 1:M 21 Apr 2026 19:44:53.331 * <bf>       { bf-error-rate       :      0.01 }
+redis_1     | 1:M 21 Apr 2026 19:44:53.331 * <bf>       { bf-initial-size     :       100 }
+redis_1     | 1:M 21 Apr 2026 19:44:53.332 * <bf>       { bf-expansion-factor :         2 }
+redis_1     | 1:M 21 Apr 2026 19:44:53.332 * <bf>       { cf-bucket-size      :         2 }
+redis_1     | 1:M 21 Apr 2026 19:44:53.332 * <bf>       { cf-initial-size     :      1024 }
+redis_1     | 1:M 21 Apr 2026 19:44:53.332 * <bf>       { cf-max-iterations   :        20 }
+redis_1     | 1:M 21 Apr 2026 19:44:53.332 * <bf>       { cf-expansion-factor :         1 }
+redis_1     | 1:M 21 Apr 2026 19:44:53.332 * <bf>       { cf-max-expansions   :        32 }
+redis_1     | 1:M 21 Apr 2026 19:44:53.332 * <bf> ]
+redis_1     | 1:M 21 Apr 2026 19:44:53.332 * Module 'bf' loaded from /usr/local/lib/redis/modules//redisbloom.so
+redis_1     | 1:M 21 Apr 2026 19:44:53.338 * <search> Redis version found by RedisSearch : 8.6.2 - oss
+redis_1     | 1:M 21 Apr 2026 19:44:53.338 * <search> RediSearch version 8.6.0 (Git=7782b97)
+redis_1     | 1:M 21 Apr 2026 19:44:53.338 * <search> Low level api version 1 initialized successfully
+redis_1     | 1:M 21 Apr 2026 19:44:53.339 * <search> gc: ON, prefix min length: 2, min word length to stem: 4, prefix max expansions: 200, query timeout (ms): 500, timeout policy: return, oom policy: return, cursor read size: 1000, cursor max idle (ms): 300000, max doctable size: 1000000, max number of search results:  1000000, default scorer: BM25STD,
+redis_1     | 1:M 21 Apr 2026 19:44:53.339 * <search> Initialized thread pools!
+redis_1     | 1:M 21 Apr 2026 19:44:53.339 * <search> Disabled workers threadpool of size 0
+redis_1     | 1:M 21 Apr 2026 19:44:53.339 * <search> Subscribe to config changes
+redis_1     | 1:M 21 Apr 2026 19:44:53.339 * <search> Subscribe to cluster slot migration events
+redis_1     | 1:M 21 Apr 2026 19:44:53.339 * <search> Enabled role change notification
+redis_1     | 1:M 21 Apr 2026 19:44:53.339 * <search> Cluster configuration: AUTO partitions, type: 0, coordinator timeout: 0ms
+docker_backend_1 exited with code 1
+redis_1     | 1:M 21 Apr 2026 19:44:53.340 * Module 'search' loaded from /usr/local/lib/redis/modules//redisearch.so
+redis_1     | 1:M 21 Apr 2026 19:44:53.341 * <timeseries> RedisTimeSeries version 80600, git_sha=05fd355db748676861dc4c17d19c8c1ca74c0154
+redis_1     | 1:M 21 Apr 2026 19:44:53.341 * <timeseries> Redis version found by RedisTimeSeries : 8.6.2 - oss
+redis_1     | 1:M 21 Apr 2026 19:44:53.341 * <timeseries> Registering configuration options: [
+redis_1     | 1:M 21 Apr 2026 19:44:53.341 * <timeseries>       { ts-compaction-policy   :              }
+redis_1     | 1:M 21 Apr 2026 19:44:53.341 * <timeseries>       { ts-num-threads         :            3 }
+redis_1     | 1:M 21 Apr 2026 19:44:53.341 * <timeseries>       { ts-retention-policy    :            0 }
+redis_1     | 1:M 21 Apr 2026 19:44:53.341 * <timeseries>       { ts-duplicate-policy    :        block }
+redis_1     | 1:M 21 Apr 2026 19:44:53.341 * <timeseries>       { ts-chunk-size-bytes    :         4096 }
+redis_1     | 1:M 21 Apr 2026 19:44:53.342 * <timeseries>       { ts-encoding            :   compressed }
+redis_1     | 1:M 21 Apr 2026 19:44:53.342 * <timeseries>       { ts-ignore-max-time-diff:            0 }
+redis_1     | 1:M 21 Apr 2026 19:44:53.342 * <timeseries>       { ts-ignore-max-val-diff :     0.000000 }
+redis_1     | 1:M 21 Apr 2026 19:44:53.342 * <timeseries> ]
+redis_1     | 1:M 21 Apr 2026 19:44:53.342 * <timeseries> Detected redis oss
+redis_1     | 1:M 21 Apr 2026 19:44:53.342 * <timeseries> Subscribe to ASM events
+redis_1     | 1:M 21 Apr 2026 19:44:53.342 * <timeseries> Enabled diskless replication
+redis_1     | 1:M 21 Apr 2026 19:44:53.342 * Module 'timeseries' loaded from /usr/local/lib/redis/modules//redistimeseries.so
+redis_1     | 1:M 21 Apr 2026 19:44:53.344 * <ReJSON> Created new data type 'ReJSON-RL'
+redis_1     | 1:M 21 Apr 2026 19:44:53.344 * <ReJSON> version: 80600 git sha: unknown branch: unknown
+redis_1     | 1:M 21 Apr 2026 19:44:53.344 * <ReJSON> Exported RedisJSON_V1 API
+redis_1     | 1:M 21 Apr 2026 19:44:53.344 * <ReJSON> Exported RedisJSON_V2 API
+redis_1     | 1:M 21 Apr 2026 19:44:53.344 * <ReJSON> Exported RedisJSON_V3 API
+redis_1     | 1:M 21 Apr 2026 19:44:53.344 * <ReJSON> Exported RedisJSON_V4 API
+redis_1     | 1:M 21 Apr 2026 19:44:53.344 * <ReJSON> Exported RedisJSON_V5 API
+redis_1     | 1:M 21 Apr 2026 19:44:53.344 * <ReJSON> Exported RedisJSON_V6 API
+redis_1     | 1:M 21 Apr 2026 19:44:53.344 * <ReJSON> Enabled diskless replication
+redis_1     | 1:M 21 Apr 2026 19:44:53.344 * <ReJSON> Initialized shared string cache, thread safe: true.
+redis_1     | 1:M 21 Apr 2026 19:44:53.344 * Module 'ReJSON' loaded from /usr/local/lib/redis/modules//rejson.so
+redis_1     | 1:M 21 Apr 2026 19:44:53.344 * <search> Acquired RedisJSON_V6 API
+redis_1     | 1:M 21 Apr 2026 19:44:53.345 * Server initialized
+redis_1     | 1:M 21 Apr 2026 19:44:53.345 * Ready to accept connections tcp
+redis_1     | 1:M 21 Apr 2026 19:44:53.345 # WARNING: Redis does not require authentication and is not protected by network restrictions. Redis will accept connections from any IP address on any network interface.
+frontend_1  | 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+frontend_1  | 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+frontend_1  | /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+frontend_1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+frontend_1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+frontend_1  | /docker-entrypoint.sh: Configuration complete; ready for start up
+frontend_1  | 2026/04/21 19:44:54 [emerg] 1#1: unknown directive "event" in /etc/nginx/nginx.conf:1
+frontend_1  | nginx: [emerg] unknown directive "event" in /etc/nginx/nginx.conf:1
+Exception in thread Thread-10 (watch_events):
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+docker_frontend_1 exited with code 1
+    self.run()
+  File "/usr/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3/dist-packages/compose/cli/log_printer.py", line 202, in watch_events
+    for event in event_stream:
+  File "/usr/lib/python3/dist-packages/compose/project.py", line 626, in yield_loop
+    yield build_container_event(event)
+  File "/usr/lib/python3/dist-packages/compose/project.py", line 594, in build_container_event
+    container = Container.from_id(self.client, event['id'])
+KeyError: 'id'
+
+^CGracefully stopping... (press Ctrl+C again to force)
+Stopping docker_redis_1    ... done
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ docker-compose down
+Removing docker_frontend_1 ... done
+Removing docker_backend_1  ... done
+Removing docker_redis_1    ... done
+Removing network docker_default
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ cd ..
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment$ git pull
+remote: Enumerating objects: 13, done.
+remote: Counting objects: 100% (13/13), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 7 (delta 5), reused 7 (delta 5), pack-reused 0 (from 0)
+Unpacking objects: 100% (7/7), 525 bytes | 262.00 KiB/s, done.
+From https://github.com/akashB-1481/sify-assesment
+   86c7eba..85b33a5  main       -> origin/main
+Updating 86c7eba..85b33a5
+Fast-forward
+ docker/backend/app.py   | 2 +-
+ docker/nginx/nginx.conf | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment$ cd docker/
+(reverse-i-search)`com': docker-^Cmpose down
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ docker-compose up --build
+Creating network "docker_default" with the default driver
+Building backend
+[+] Building 7.9s (9/9) FINISHED                                                                                                                                              docker:default
+ => [internal] load build definition from dockerfile                                                                                                                                    0.0s
+ => => transferring dockerfile: 141B                                                                                                                                                    0.0s
+ => [internal] load metadata for docker.io/library/python:3.9-slim                                                                                                                      1.0s
+ => [internal] load .dockerignore                                                                                                                                                       0.0s
+ => => transferring context: 2B                                                                                                                                                         0.0s
+ => [1/4] FROM docker.io/library/python:3.9-slim@sha256:2d97f6910b16bd338d3060f261f53f144965f755599aab1acda1e13cf1731b1b                                                                0.0s
+ => => resolve docker.io/library/python:3.9-slim@sha256:2d97f6910b16bd338d3060f261f53f144965f755599aab1acda1e13cf1731b1b                                                                0.0s
+ => [internal] load build context                                                                                                                                                       0.0s
+ => => transferring context: 459B                                                                                                                                                       0.0s
+ => CACHED [2/4] WORKDIR /app                                                                                                                                                           0.0s
+ => [3/4] COPY app.py .                                                                                                                                                                 0.1s
+ => [4/4] RUN pip install flask redis                                                                                                                                                   5.2s
+ => exporting to image                                                                                                                                                                  1.5s
+ => => exporting layers                                                                                                                                                                 0.9s
+ => => exporting manifest sha256:d0d508974cc7d81b25040a0bad7722706c97765adf988fe69b93bb8d9bd78c67                                                                                       0.0s
+ => => exporting config sha256:9d1304e80d0e5be64665596c5758bc9dbb9efc91eed6655936446013c8b5a1b9                                                                                         0.0s
+ => => exporting attestation manifest sha256:9113cac8e1ae11bafbe7063b3b3269910d83d3cf9f1684c18ea385ee9d289922                                                                           0.0s
+ => => exporting manifest list sha256:4718c00276c3af191a51777caa699c7329632742d2586cbf5ea6183b22640e8c                                                                                  0.0s
+ => => naming to docker.io/library/docker_backend:latest                                                                                                                                0.0s
+ => => unpacking to docker.io/library/docker_backend:latest                                                                                                                             0.4s
+Building frontend
+[+] Building 1.6s (8/8) FINISHED                                                                                                                                              docker:default
+ => [internal] load build definition from dockerfile                                                                                                                                    0.0s
+ => => transferring dockerfile: 144B                                                                                                                                                    0.0s
+ => [internal] load metadata for docker.io/library/nginx:alpine                                                                                                                         1.0s
+ => [internal] load .dockerignore                                                                                                                                                       0.0s
+ => => transferring context: 2B                                                                                                                                                         0.0s
+ => CACHED [1/3] FROM docker.io/library/nginx:alpine@sha256:5616878291a2eed594aee8db4dade5878cf7edcb475e59193904b198d9b830de                                                            0.0s
+ => => resolve docker.io/library/nginx:alpine@sha256:5616878291a2eed594aee8db4dade5878cf7edcb475e59193904b198d9b830de                                                                   0.0s
+ => [internal] load build context                                                                                                                                                       0.0s
+ => => transferring context: 315B                                                                                                                                                       0.0s
+ => [2/3] COPY nginx.conf /etc/nginx/nginx.conf                                                                                                                                         0.1s
+ => [3/3] COPY index.html /usr/share/nginx/html/index.html                                                                                                                              0.1s
+ => exporting to image                                                                                                                                                                  0.3s
+ => => exporting layers                                                                                                                                                                 0.1s
+ => => exporting manifest sha256:6ad39d794074725762cc2cafea774c0e160b3f0ee9b2c67ce9922dd3bd98348f                                                                                       0.0s
+ => => exporting config sha256:dabcfe22eb6a5d20b8a2215d4113a5497bcdc9f18a38cbcd097a9789c50e9021                                                                                         0.0s
+ => => exporting attestation manifest sha256:504947429d07091fca9757f97894cdbcb53b8c4fbdf859e997deabac3a1d0663                                                                           0.0s
+ => => exporting manifest list sha256:67088630f965745756f37dbcc4cd8ad8d786037d2bb1581e7b95a1c4c7644957                                                                                  0.0s
+ => => naming to docker.io/library/docker_frontend:latest                                                                                                                               0.0s
+ => => unpacking to docker.io/library/docker_frontend:latest                                                                                                                            0.0s
+Creating docker_redis_1 ... done
+Creating docker_backend_1 ... done
+Creating docker_frontend_1 ... done
+Attaching to docker_redis_1, docker_backend_1, docker_frontend_1
+backend_1   |  * Serving Flask app 'app'
+frontend_1  | /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+redis_1     | Starting Redis Server
+redis_1     | 1:C 21 Apr 2026 19:48:38.197 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+redis_1     | 1:C 21 Apr 2026 19:48:38.197 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+redis_1     | 1:C 21 Apr 2026 19:48:38.197 * Redis version=8.6.2, bits=64, commit=00000000, modified=1, pid=1, just started
+redis_1     | 1:C 21 Apr 2026 19:48:38.197 * Configuration loaded
+redis_1     | 1:M 21 Apr 2026 19:48:38.198 * Increased maximum number of open files to 10032 (it was originally set to 1024).
+redis_1     | 1:M 21 Apr 2026 19:48:38.198 * monotonic clock: POSIX clock_gettime
+redis_1     | 1:M 21 Apr 2026 19:48:38.199 * Running mode=standalone, port=6379.
+redis_1     | 1:M 21 Apr 2026 19:48:38.200 * <bf> RedisBloom version 8.6.0 (Git=unknown)
+redis_1     | 1:M 21 Apr 2026 19:48:38.200 * <bf> Registering configuration options: [
+redis_1     | 1:M 21 Apr 2026 19:48:38.200 * <bf>       { bf-error-rate       :      0.01 }
+redis_1     | 1:M 21 Apr 2026 19:48:38.200 * <bf>       { bf-initial-size     :       100 }
+redis_1     | 1:M 21 Apr 2026 19:48:38.200 * <bf>       { bf-expansion-factor :         2 }
+redis_1     | 1:M 21 Apr 2026 19:48:38.200 * <bf>       { cf-bucket-size      :         2 }
+redis_1     | 1:M 21 Apr 2026 19:48:38.200 * <bf>       { cf-initial-size     :      1024 }
+frontend_1  | /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+redis_1     | 1:M 21 Apr 2026 19:48:38.200 * <bf>       { cf-max-iterations   :        20 }
+redis_1     | 1:M 21 Apr 2026 19:48:38.201 * <bf>       { cf-expansion-factor :         1 }
+redis_1     | 1:M 21 Apr 2026 19:48:38.201 * <bf>       { cf-max-expansions   :        32 }
+redis_1     | 1:M 21 Apr 2026 19:48:38.201 * <bf> ]
+redis_1     | 1:M 21 Apr 2026 19:48:38.201 * Module 'bf' loaded from /usr/local/lib/redis/modules//redisbloom.so
+redis_1     | 1:M 21 Apr 2026 19:48:38.207 * <search> Redis version found by RedisSearch : 8.6.2 - oss
+redis_1     | 1:M 21 Apr 2026 19:48:38.207 * <search> RediSearch version 8.6.0 (Git=7782b97)
+redis_1     | 1:M 21 Apr 2026 19:48:38.207 * <search> Low level api version 1 initialized successfully
+redis_1     | 1:M 21 Apr 2026 19:48:38.207 * <search> gc: ON, prefix min length: 2, min word length to stem: 4, prefix max expansions: 200, query timeout (ms): 500, timeout policy: return, oom policy: return, cursor read size: 1000, cursor max idle (ms): 300000, max doctable size: 1000000, max number of search results:  1000000, default scorer: BM25STD,
+redis_1     | 1:M 21 Apr 2026 19:48:38.207 * <search> Initialized thread pools!
+redis_1     | 1:M 21 Apr 2026 19:48:38.207 * <search> Disabled workers threadpool of size 0
+redis_1     | 1:M 21 Apr 2026 19:48:38.207 * <search> Subscribe to config changes
+redis_1     | 1:M 21 Apr 2026 19:48:38.207 * <search> Subscribe to cluster slot migration events
+redis_1     | 1:M 21 Apr 2026 19:48:38.207 * <search> Enabled role change notification
+redis_1     | 1:M 21 Apr 2026 19:48:38.208 * <search> Cluster configuration: AUTO partitions, type: 0, coordinator timeout: 0ms
+redis_1     | 1:M 21 Apr 2026 19:48:38.209 * Module 'search' loaded from /usr/local/lib/redis/modules//redisearch.so
+redis_1     | 1:M 21 Apr 2026 19:48:38.209 * <timeseries> RedisTimeSeries version 80600, git_sha=05fd355db748676861dc4c17d19c8c1ca74c0154
+redis_1     | 1:M 21 Apr 2026 19:48:38.210 * <timeseries> Redis version found by RedisTimeSeries : 8.6.2 - oss
+redis_1     | 1:M 21 Apr 2026 19:48:38.210 * <timeseries> Registering configuration options: [
+redis_1     | 1:M 21 Apr 2026 19:48:38.210 * <timeseries>       { ts-compaction-policy   :              }
+redis_1     | 1:M 21 Apr 2026 19:48:38.210 * <timeseries>       { ts-num-threads         :            3 }
+redis_1     | 1:M 21 Apr 2026 19:48:38.210 * <timeseries>       { ts-retention-policy    :            0 }
+redis_1     | 1:M 21 Apr 2026 19:48:38.210 * <timeseries>       { ts-duplicate-policy    :        block }
+redis_1     | 1:M 21 Apr 2026 19:48:38.210 * <timeseries>       { ts-chunk-size-bytes    :         4096 }
+redis_1     | 1:M 21 Apr 2026 19:48:38.210 * <timeseries>       { ts-encoding            :   compressed }
+redis_1     | 1:M 21 Apr 2026 19:48:38.210 * <timeseries>       { ts-ignore-max-time-diff:            0 }
+redis_1     | 1:M 21 Apr 2026 19:48:38.210 * <timeseries>       { ts-ignore-max-val-diff :     0.000000 }
+redis_1     | 1:M 21 Apr 2026 19:48:38.210 * <timeseries> ]
+redis_1     | 1:M 21 Apr 2026 19:48:38.210 * <timeseries> Detected redis oss
+redis_1     | 1:M 21 Apr 2026 19:48:38.210 * <timeseries> Subscribe to ASM events
+redis_1     | 1:M 21 Apr 2026 19:48:38.210 * <timeseries> Enabled diskless replication
+redis_1     | 1:M 21 Apr 2026 19:48:38.210 * Module 'timeseries' loaded from /usr/local/lib/redis/modules//redistimeseries.so
+redis_1     | 1:M 21 Apr 2026 19:48:38.211 * <ReJSON> Created new data type 'ReJSON-RL'
+redis_1     | 1:M 21 Apr 2026 19:48:38.211 * <ReJSON> version: 80600 git sha: unknown branch: unknown
+redis_1     | 1:M 21 Apr 2026 19:48:38.211 * <ReJSON> Exported RedisJSON_V1 API
+redis_1     | 1:M 21 Apr 2026 19:48:38.211 * <ReJSON> Exported RedisJSON_V2 API
+redis_1     | 1:M 21 Apr 2026 19:48:38.212 * <ReJSON> Exported RedisJSON_V3 API
+redis_1     | 1:M 21 Apr 2026 19:48:38.212 * <ReJSON> Exported RedisJSON_V4 API
+redis_1     | 1:M 21 Apr 2026 19:48:38.212 * <ReJSON> Exported RedisJSON_V5 API
+redis_1     | 1:M 21 Apr 2026 19:48:38.212 * <ReJSON> Exported RedisJSON_V6 API
+frontend_1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+redis_1     | 1:M 21 Apr 2026 19:48:38.212 * <ReJSON> Enabled diskless replication
+redis_1     | 1:M 21 Apr 2026 19:48:38.212 * <ReJSON> Initialized shared string cache, thread safe: true.
+redis_1     | 1:M 21 Apr 2026 19:48:38.212 * Module 'ReJSON' loaded from /usr/local/lib/redis/modules//rejson.so
+redis_1     | 1:M 21 Apr 2026 19:48:38.212 * <search> Acquired RedisJSON_V6 API
+backend_1   |  * Debug mode: off
+redis_1     | 1:M 21 Apr 2026 19:48:38.212 * Server initialized
+backend_1   | WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+backend_1   |  * Running on all addresses (0.0.0.0)
+backend_1   |  * Running on http://127.0.0.1:5000
+backend_1   |  * Running on http://172.19.0.3:5000
+redis_1     | 1:M 21 Apr 2026 19:48:38.212 * Ready to accept connections tcp
+redis_1     | 1:M 21 Apr 2026 19:48:38.212 # WARNING: Redis does not require authentication and is not protected by network restrictions. Redis will accept connections from any IP address on any network interface.
+backend_1   | Press CTRL+C to quit
+frontend_1  | 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+frontend_1  | 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+frontend_1  | /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+frontend_1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+frontend_1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+frontend_1  | /docker-entrypoint.sh: Configuration complete; ready for start up
+frontend_1  | 2026/04/21 19:48:39 [emerg] 1#1: unexpected end of file, expecting "}" in /etc/nginx/nginx.conf:15
+frontend_1  | nginx: [emerg] unexpected end of file, expecting "}" in /etc/nginx/nginx.conf:15
+Exception in thread Thread-10 (watch_events):
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.10/threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "/usr/lib/python3/dist-packages/compose/cli/log_printer.py", line 202, in watch_events
+    for event in event_stream:
+  File "/usr/lib/python3/dist-packages/compose/project.py", line 626, in yield_loop
+    yield build_container_event(event)
+  File "/usr/lib/python3/dist-packages/compose/project.py", line 594, in build_container_event
+    container = Container.from_id(self.client, event['id'])
+KeyError: 'id'
+docker_frontend_1 exited with code 1
+^CGracefully stopping... (press Ctrl+C again to force)
+Stopping docker_backend_1  ... done
+Stopping docker_redis_1    ... done
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ docker-compose down
+Removing docker_frontend_1 ... done
+Removing docker_backend_1  ... done
+Removing docker_redis_1    ... done
+Removing network docker_default
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ docker-compose up --build -d
+Creating network "docker_default" with the default driver
+Building backend
+[+] Building 1.1s (9/9) FINISHED                                                                                                                                              docker:default
+ => [internal] load build definition from dockerfile                                                                                                                                    0.0s
+ => => transferring dockerfile: 141B                                                                                                                                                    0.0s
+ => [internal] load metadata for docker.io/library/python:3.9-slim                                                                                                                      0.8s
+ => [internal] load .dockerignore                                                                                                                                                       0.0s
+ => => transferring context: 2B                                                                                                                                                         0.0s
+ => [1/4] FROM docker.io/library/python:3.9-slim@sha256:2d97f6910b16bd338d3060f261f53f144965f755599aab1acda1e13cf1731b1b                                                                0.0s
+ => => resolve docker.io/library/python:3.9-slim@sha256:2d97f6910b16bd338d3060f261f53f144965f755599aab1acda1e13cf1731b1b                                                                0.0s
+ => [internal] load build context                                                                                                                                                       0.0s
+ => => transferring context: 28B                                                                                                                                                        0.0s
+ => CACHED [2/4] WORKDIR /app                                                                                                                                                           0.0s
+ => CACHED [3/4] COPY app.py .                                                                                                                                                          0.0s
+ => CACHED [4/4] RUN pip install flask redis                                                                                                                                            0.0s
+ => exporting to image                                                                                                                                                                  0.1s
+ => => exporting layers                                                                                                                                                                 0.0s
+ => => exporting manifest sha256:d0d508974cc7d81b25040a0bad7722706c97765adf988fe69b93bb8d9bd78c67                                                                                       0.0s
+ => => exporting config sha256:9d1304e80d0e5be64665596c5758bc9dbb9efc91eed6655936446013c8b5a1b9                                                                                         0.0s
+ => => exporting attestation manifest sha256:6e864cafadb2a040e9aa57121cef3225b1ec89cd09672a922c19579aa65ebee7                                                                           0.0s
+ => => exporting manifest list sha256:a8b940c50f3b0ed1b823496b3429df0e03b569a0adbda959436160be74bc7de1                                                                                  0.0s
+ => => naming to docker.io/library/docker_backend:latest                                                                                                                                0.0s
+ => => unpacking to docker.io/library/docker_backend:latest                                                                                                                             0.0s
+Building frontend
+[+] Building 1.1s (8/8) FINISHED                                                                                                                                              docker:default
+ => [internal] load build definition from dockerfile                                                                                                                                    0.0s
+ => => transferring dockerfile: 144B                                                                                                                                                    0.0s
+ => [internal] load metadata for docker.io/library/nginx:alpine                                                                                                                         0.7s
+ => [internal] load .dockerignore                                                                                                                                                       0.0s
+ => => transferring context: 2B                                                                                                                                                         0.0s
+ => [1/3] FROM docker.io/library/nginx:alpine@sha256:5616878291a2eed594aee8db4dade5878cf7edcb475e59193904b198d9b830de                                                                   0.0s
+ => => resolve docker.io/library/nginx:alpine@sha256:5616878291a2eed594aee8db4dade5878cf7edcb475e59193904b198d9b830de                                                                   0.0s
+ => [internal] load build context                                                                                                                                                       0.0s
+ => => transferring context: 62B                                                                                                                                                        0.0s
+ => CACHED [2/3] COPY nginx.conf /etc/nginx/nginx.conf                                                                                                                                  0.0s
+ => CACHED [3/3] COPY index.html /usr/share/nginx/html/index.html                                                                                                                       0.0s
+ => exporting to image                                                                                                                                                                  0.1s
+ => => exporting layers                                                                                                                                                                 0.0s
+ => => exporting manifest sha256:6ad39d794074725762cc2cafea774c0e160b3f0ee9b2c67ce9922dd3bd98348f                                                                                       0.0s
+ => => exporting config sha256:dabcfe22eb6a5d20b8a2215d4113a5497bcdc9f18a38cbcd097a9789c50e9021                                                                                         0.0s
+ => => exporting attestation manifest sha256:6a8a69cbf7271afb20c3bdbd982a8192d9419ad1b367234179c1d146a95c7732                                                                           0.0s
+ => => exporting manifest list sha256:3e100cf84460fe2b050608e756f8975fc41a09ced0b4eef7a367284d125bfd7e                                                                                  0.0s
+ => => naming to docker.io/library/docker_frontend:latest                                                                                                                               0.0s
+ => => unpacking to docker.io/library/docker_frontend:latest                                                                                                                            0.0s
+Creating docker_redis_1 ... done
+Creating docker_backend_1 ... done
+Creating docker_frontend_1 ... done
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ curl localhost:8080
+curl: (7) Failed to connect to localhost port 8080 after 0 ms: Connection refused
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ curl localhost:8080
+curl: (7) Failed to connect to localhost port 8080 after 0 ms: Connection refused
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ curl localhost:8080/api
+curl: (7) Failed to connect to localhost port 8080 after 0 ms: Connection refused
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ docker ps
+CONTAINER ID   IMAGE            COMMAND                  CREATED              STATUS          PORTS      NAMES
+5abbc6237a67   docker_backend   "python app.py"          About a minute ago   Up 59 seconds              docker_backend_1
+73fc2768f1ce   redis:alpine     "docker-entrypoint.s…"   About a minute ago   Up 59 seconds   6379/tcp   docker_redis_1
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ docker ps -a
+CONTAINER ID   IMAGE             COMMAND                  CREATED              STATUS                          PORTS      NAMES
+e781258ce867   docker_frontend   "/docker-entrypoint.…"   About a minute ago   Exited (1) About a minute ago              docker_frontend_1
+5abbc6237a67   docker_backend    "python app.py"          About a minute ago   Up About a minute                          docker_backend_1
+73fc2768f1ce   redis:alpine      "docker-entrypoint.s…"   About a minute ago   Up About a minute               6379/tcp   docker_redis_1
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ docker compose ps
+WARN[0000] /home/akashb1408/sify-assesment/sify-assesment/docker/docker-compose.yaml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+NAME               IMAGE            COMMAND                  SERVICE   CREATED              STATUS              PORTS
+docker_backend_1   docker_backend   "python app.py"          backend   About a minute ago   Up About a minute
+docker_redis_1     redis:alpine     "docker-entrypoint.s…"   redis     About a minute ago   Up About a minute   6379/tcp
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ docker-compose logs frontend
+Attaching to docker_frontend_1
+frontend_1  | /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+frontend_1  | /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+frontend_1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+frontend_1  | 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+frontend_1  | 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+frontend_1  | /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+frontend_1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+frontend_1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+frontend_1  | /docker-entrypoint.sh: Configuration complete; ready for start up
+frontend_1  | 2026/04/21 19:52:04 [emerg] 1#1: unexpected end of file, expecting "}" in /etc/nginx/nginx.conf:15
+frontend_1  | nginx: [emerg] unexpected end of file, expecting "}" in /etc/nginx/nginx.conf:15
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ docker-compose down
+Stopping docker_backend_1 ... done
+Stopping docker_redis_1   ... done
+Removing docker_frontend_1 ... done
+Removing docker_backend_1  ... done
+Removing docker_redis_1    ... done
+Removing network docker_default
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ cd ..
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment$ git pull
+remote: Enumerating objects: 9, done.
+remote: Counting objects: 100% (9/9), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 5 (delta 4), reused 5 (delta 4), pack-reused 0 (from 0)
+Unpacking objects: 100% (5/5), 382 bytes | 382.00 KiB/s, done.
+From https://github.com/akashB-1481/sify-assesment
+   85b33a5..26e0f03  main       -> origin/main
+Updating 85b33a5..26e0f03
+Fast-forward
+ docker/nginx/nginx.conf | 1 +
+ 1 file changed, 1 insertion(+)
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment$ cd docker/
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ docker-compose up --build -d
+Creating network "docker_default" with the default driver
+Building backend
+[+] Building 1.3s (9/9) FINISHED                                                                                                                                              docker:default
+ => [internal] load build definition from dockerfile                                                                                                                                    0.0s
+ => => transferring dockerfile: 141B                                                                                                                                                    0.0s
+ => [internal] load metadata for docker.io/library/python:3.9-slim                                                                                                                      1.0s
+ => [internal] load .dockerignore                                                                                                                                                       0.0s
+ => => transferring context: 2B                                                                                                                                                         0.0s
+ => [1/4] FROM docker.io/library/python:3.9-slim@sha256:2d97f6910b16bd338d3060f261f53f144965f755599aab1acda1e13cf1731b1b                                                                0.0s
+ => => resolve docker.io/library/python:3.9-slim@sha256:2d97f6910b16bd338d3060f261f53f144965f755599aab1acda1e13cf1731b1b                                                                0.0s
+ => [internal] load build context                                                                                                                                                       0.0s
+ => => transferring context: 28B                                                                                                                                                        0.0s
+ => CACHED [2/4] WORKDIR /app                                                                                                                                                           0.0s
+ => CACHED [3/4] COPY app.py .                                                                                                                                                          0.0s
+ => CACHED [4/4] RUN pip install flask redis                                                                                                                                            0.0s
+ => exporting to image                                                                                                                                                                  0.1s
+ => => exporting layers                                                                                                                                                                 0.0s
+ => => exporting manifest sha256:d0d508974cc7d81b25040a0bad7722706c97765adf988fe69b93bb8d9bd78c67                                                                                       0.0s
+ => => exporting config sha256:9d1304e80d0e5be64665596c5758bc9dbb9efc91eed6655936446013c8b5a1b9                                                                                         0.0s
+ => => exporting attestation manifest sha256:1167695b84687986b8b93a95c38dc3c30e338c6de67528a392a3fac355fb40be                                                                           0.0s
+ => => exporting manifest list sha256:dbd25588fa6cf10bab979b3fe920d47dae29f4a43aa10ca63a6611a57cc08c35                                                                                  0.0s
+ => => naming to docker.io/library/docker_backend:latest                                                                                                                                0.0s
+ => => unpacking to docker.io/library/docker_backend:latest                                                                                                                             0.0s
+Building frontend
+[+] Building 1.6s (8/8) FINISHED                                                                                                                                              docker:default
+ => [internal] load build definition from dockerfile                                                                                                                                    0.0s
+ => => transferring dockerfile: 144B                                                                                                                                                    0.0s
+ => [internal] load metadata for docker.io/library/nginx:alpine                                                                                                                         1.0s
+ => [internal] load .dockerignore                                                                                                                                                       0.0s
+ => => transferring context: 2B                                                                                                                                                         0.0s
+ => CACHED [1/3] FROM docker.io/library/nginx:alpine@sha256:5616878291a2eed594aee8db4dade5878cf7edcb475e59193904b198d9b830de                                                            0.0s
+ => => resolve docker.io/library/nginx:alpine@sha256:5616878291a2eed594aee8db4dade5878cf7edcb475e59193904b198d9b830de                                                                   0.0s
+ => [internal] load build context                                                                                                                                                       0.0s
+ => => transferring context: 317B                                                                                                                                                       0.0s
+ => [2/3] COPY nginx.conf /etc/nginx/nginx.conf                                                                                                                                         0.0s
+ => [3/3] COPY index.html /usr/share/nginx/html/index.html                                                                                                                              0.1s
+ => exporting to image                                                                                                                                                                  0.3s
+ => => exporting layers                                                                                                                                                                 0.1s
+ => => exporting manifest sha256:8b219b15f500925f6b99c8f49f30cc21ea08f85499a871936426629bff15f870                                                                                       0.0s
+ => => exporting config sha256:869659d3f73a6567761b82637d30b73f71089ece72be4ad4430cad4f91213a8c                                                                                         0.0s
+ => => exporting attestation manifest sha256:497c300aed8294e9578af5f7de61f4189cef6675778ba6281298af546384c422                                                                           0.0s
+ => => exporting manifest list sha256:7dbb3cb8920cf7e6a94a1c4d7d92e6643909877ee89f9df0592dd73dbc9a5e1a                                                                                  0.0s
+ => => naming to docker.io/library/docker_frontend:latest                                                                                                                               0.0s
+ => => unpacking to docker.io/library/docker_frontend:latest                                                                                                                            0.0s
+Creating docker_redis_1 ... done
+Creating docker_backend_1 ... done
+Creating docker_frontend_1 ... done
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ curl localhost:8080
+<!doctype html>
+<html>
+  <head>
+    <title>K8s Assignment App</title>
+  </head>
+  <body>
+    <h1>Welcome to My App 🚀</h1>
+    <p>This is served by Nginx</p>
+
+    <button onclick="getData()">Call Backend API</button>
+
+    <p id="output"></p>
+
+    <script>
+      function getData() {
+        fetch("/api")
+          .then((response) => response.json())
+          .then((data) => {
+            document.getElementById("output").innerText = "Hits: " + data.hits;
+          });
+      }
+    </script>
+  </body>
+</html>
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ curl localhost:8080/api
+{"hits":1}
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ curl localhost:8080/api
+{"hits":2}
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ curl localhost:8080/api
+{"hits":3}
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ curl localhost:8080/api
+{"hits":4}
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ curl localhost:8080/api
+{"hits":5}
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ docker-compose ps
+      Name                     Command               State                  Ports
+-------------------------------------------------------------------------------------------------
+docker_backend_1    python app.py                    Up
+docker_frontend_1   /docker-entrypoint.sh ngin ...   Up      0.0.0.0:8080->80/tcp,:::8080->80/tcp
+docker_redis_1      docker-entrypoint.sh redis ...   Up      6379/tcp
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ docker-compose logs frontend
+backend   frontend  redis
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ docker-compose logs frontend
+Attaching to docker_frontend_1
+frontend_1  | /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+frontend_1  | /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+frontend_1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+frontend_1  | 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+frontend_1  | 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+frontend_1  | /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+frontend_1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+frontend_1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+frontend_1  | /docker-entrypoint.sh: Configuration complete; ready for start up
+frontend_1  | 172.19.0.1 - - [21/Apr/2026:19:56:00 +0000] "GET / HTTP/1.1" 200 516 "-" "curl/7.81.0"
+frontend_1  | 172.19.0.1 - - [21/Apr/2026:19:56:07 +0000] "GET /api HTTP/1.1" 200 11 "-" "curl/7.81.0"
+frontend_1  | 172.19.0.1 - - [21/Apr/2026:19:56:08 +0000] "GET /api HTTP/1.1" 200 11 "-" "curl/7.81.0"
+frontend_1  | 172.19.0.1 - - [21/Apr/2026:19:56:09 +0000] "GET /api HTTP/1.1" 200 11 "-" "curl/7.81.0"
+frontend_1  | 172.19.0.1 - - [21/Apr/2026:19:56:10 +0000] "GET /api HTTP/1.1" 200 11 "-" "curl/7.81.0"
+frontend_1  | 172.19.0.1 - - [21/Apr/2026:19:56:10 +0000] "GET /api HTTP/1.1" 200 11 "-" "curl/7.81.0"
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ docker-compose logs backend
+Attaching to docker_backend_1
+backend_1   |  * Serving Flask app 'app'
+backend_1   |  * Debug mode: off
+backend_1   | WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+backend_1   |  * Running on all addresses (0.0.0.0)
+backend_1   |  * Running on http://127.0.0.1:5000
+backend_1   |  * Running on http://172.19.0.3:5000
+backend_1   | Press CTRL+C to quit
+backend_1   | 172.19.0.4 - - [21/Apr/2026 19:56:07] "GET /api HTTP/1.1" 200 -
+backend_1   | 172.19.0.4 - - [21/Apr/2026 19:56:08] "GET /api HTTP/1.1" 200 -
+backend_1   | 172.19.0.4 - - [21/Apr/2026 19:56:09] "GET /api HTTP/1.1" 200 -
+backend_1   | 172.19.0.4 - - [21/Apr/2026 19:56:10] "GET /api HTTP/1.1" 200 -
+backend_1   | 172.19.0.4 - - [21/Apr/2026 19:56:10] "GET /api HTTP/1.1" 200 -
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$ docker-compose logs redis
+Attaching to docker_redis_1
+redis_1     | Starting Redis Server
+redis_1     | 1:C 21 Apr 2026 19:55:52.055 # WARNING Memory overcommit must be enabled! Without it, a background save or replication may fail under low memory condition. Being disabled, it can also cause failures without low memory condition, see https://github.com/jemalloc/jemalloc/issues/1328. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+redis_1     | 1:C 21 Apr 2026 19:55:52.055 * oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+redis_1     | 1:C 21 Apr 2026 19:55:52.055 * Redis version=8.6.2, bits=64, commit=00000000, modified=1, pid=1, just started
+redis_1     | 1:C 21 Apr 2026 19:55:52.055 * Configuration loaded
+redis_1     | 1:M 21 Apr 2026 19:55:52.056 * Increased maximum number of open files to 10032 (it was originally set to 1024).
+redis_1     | 1:M 21 Apr 2026 19:55:52.056 * monotonic clock: POSIX clock_gettime
+redis_1     | 1:M 21 Apr 2026 19:55:52.058 * Running mode=standalone, port=6379.
+redis_1     | 1:M 21 Apr 2026 19:55:52.059 * <bf> RedisBloom version 8.6.0 (Git=unknown)
+redis_1     | 1:M 21 Apr 2026 19:55:52.059 * <bf> Registering configuration options: [
+redis_1     | 1:M 21 Apr 2026 19:55:52.059 * <bf>       { bf-error-rate       :      0.01 }
+redis_1     | 1:M 21 Apr 2026 19:55:52.059 * <bf>       { bf-initial-size     :       100 }
+redis_1     | 1:M 21 Apr 2026 19:55:52.059 * <bf>       { bf-expansion-factor :         2 }
+redis_1     | 1:M 21 Apr 2026 19:55:52.059 * <bf>       { cf-bucket-size      :         2 }
+redis_1     | 1:M 21 Apr 2026 19:55:52.059 * <bf>       { cf-initial-size     :      1024 }
+redis_1     | 1:M 21 Apr 2026 19:55:52.059 * <bf>       { cf-max-iterations   :        20 }
+redis_1     | 1:M 21 Apr 2026 19:55:52.059 * <bf>       { cf-expansion-factor :         1 }
+redis_1     | 1:M 21 Apr 2026 19:55:52.059 * <bf>       { cf-max-expansions   :        32 }
+redis_1     | 1:M 21 Apr 2026 19:55:52.059 * <bf> ]
+redis_1     | 1:M 21 Apr 2026 19:55:52.060 * Module 'bf' loaded from /usr/local/lib/redis/modules//redisbloom.so
+redis_1     | 1:M 21 Apr 2026 19:55:52.066 * <search> Redis version found by RedisSearch : 8.6.2 - oss
+redis_1     | 1:M 21 Apr 2026 19:55:52.066 * <search> RediSearch version 8.6.0 (Git=7782b97)
+redis_1     | 1:M 21 Apr 2026 19:55:52.066 * <search> Low level api version 1 initialized successfully
+redis_1     | 1:M 21 Apr 2026 19:55:52.066 * <search> gc: ON, prefix min length: 2, min word length to stem: 4, prefix max expansions: 200, query timeout (ms): 500, timeout policy: return, oom policy: return, cursor read size: 1000, cursor max idle (ms): 300000, max doctable size: 1000000, max number of search results:  1000000, default scorer: BM25STD,
+redis_1     | 1:M 21 Apr 2026 19:55:52.066 * <search> Initialized thread pools!
+redis_1     | 1:M 21 Apr 2026 19:55:52.066 * <search> Disabled workers threadpool of size 0
+redis_1     | 1:M 21 Apr 2026 19:55:52.066 * <search> Subscribe to config changes
+redis_1     | 1:M 21 Apr 2026 19:55:52.066 * <search> Subscribe to cluster slot migration events
+redis_1     | 1:M 21 Apr 2026 19:55:52.066 * <search> Enabled role change notification
+redis_1     | 1:M 21 Apr 2026 19:55:52.067 * <search> Cluster configuration: AUTO partitions, type: 0, coordinator timeout: 0ms
+redis_1     | 1:M 21 Apr 2026 19:55:52.068 * Module 'search' loaded from /usr/local/lib/redis/modules//redisearch.so
+redis_1     | 1:M 21 Apr 2026 19:55:52.068 * <timeseries> RedisTimeSeries version 80600, git_sha=05fd355db748676861dc4c17d19c8c1ca74c0154
+redis_1     | 1:M 21 Apr 2026 19:55:52.068 * <timeseries> Redis version found by RedisTimeSeries : 8.6.2 - oss
+redis_1     | 1:M 21 Apr 2026 19:55:52.069 * <timeseries> Registering configuration options: [
+redis_1     | 1:M 21 Apr 2026 19:55:52.069 * <timeseries>       { ts-compaction-policy   :              }
+redis_1     | 1:M 21 Apr 2026 19:55:52.069 * <timeseries>       { ts-num-threads         :            3 }
+redis_1     | 1:M 21 Apr 2026 19:55:52.069 * <timeseries>       { ts-retention-policy    :            0 }
+redis_1     | 1:M 21 Apr 2026 19:55:52.069 * <timeseries>       { ts-duplicate-policy    :        block }
+redis_1     | 1:M 21 Apr 2026 19:55:52.069 * <timeseries>       { ts-chunk-size-bytes    :         4096 }
+redis_1     | 1:M 21 Apr 2026 19:55:52.069 * <timeseries>       { ts-encoding            :   compressed }
+redis_1     | 1:M 21 Apr 2026 19:55:52.069 * <timeseries>       { ts-ignore-max-time-diff:            0 }
+redis_1     | 1:M 21 Apr 2026 19:55:52.069 * <timeseries>       { ts-ignore-max-val-diff :     0.000000 }
+redis_1     | 1:M 21 Apr 2026 19:55:52.069 * <timeseries> ]
+redis_1     | 1:M 21 Apr 2026 19:55:52.069 * <timeseries> Detected redis oss
+redis_1     | 1:M 21 Apr 2026 19:55:52.070 * <timeseries> Subscribe to ASM events
+redis_1     | 1:M 21 Apr 2026 19:55:52.070 * <timeseries> Enabled diskless replication
+redis_1     | 1:M 21 Apr 2026 19:55:52.070 * Module 'timeseries' loaded from /usr/local/lib/redis/modules//redistimeseries.so
+redis_1     | 1:M 21 Apr 2026 19:55:52.071 * <ReJSON> Created new data type 'ReJSON-RL'
+redis_1     | 1:M 21 Apr 2026 19:55:52.071 * <ReJSON> version: 80600 git sha: unknown branch: unknown
+redis_1     | 1:M 21 Apr 2026 19:55:52.071 * <ReJSON> Exported RedisJSON_V1 API
+redis_1     | 1:M 21 Apr 2026 19:55:52.071 * <ReJSON> Exported RedisJSON_V2 API
+redis_1     | 1:M 21 Apr 2026 19:55:52.072 * <ReJSON> Exported RedisJSON_V3 API
+redis_1     | 1:M 21 Apr 2026 19:55:52.072 * <ReJSON> Exported RedisJSON_V4 API
+redis_1     | 1:M 21 Apr 2026 19:55:52.072 * <ReJSON> Exported RedisJSON_V5 API
+redis_1     | 1:M 21 Apr 2026 19:55:52.072 * <ReJSON> Exported RedisJSON_V6 API
+redis_1     | 1:M 21 Apr 2026 19:55:52.072 * <ReJSON> Enabled diskless replication
+redis_1     | 1:M 21 Apr 2026 19:55:52.072 * <ReJSON> Initialized shared string cache, thread safe: true.
+redis_1     | 1:M 21 Apr 2026 19:55:52.072 * Module 'ReJSON' loaded from /usr/local/lib/redis/modules//rejson.so
+redis_1     | 1:M 21 Apr 2026 19:55:52.072 * <search> Acquired RedisJSON_V6 API
+redis_1     | 1:M 21 Apr 2026 19:55:52.072 * Server initialized
+redis_1     | 1:M 21 Apr 2026 19:55:52.072 * Ready to accept connections tcp
+redis_1     | 1:M 21 Apr 2026 19:55:52.072 # WARNING: Redis does not require authentication and is not protected by network restrictions. Redis will accept connections from any IP address on any network interface.
+akashb1408@ip-172-18-5-9:~/sify-assesment/sify-assesment/docker$
+
+==============================

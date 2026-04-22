@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask
+  namespace: sify-assessment
+  labels:
+    app: flask
+spec:
+  selector:
+    matchLabels:
+      app: lask
+  replicas: 2
+
+  template:
+    metadata:
+      labels:
+        app: flask
+    spec:
+      containers:
+        - name: flask
+          image: aakashb1408/sify-assessment-backend:v1.0
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+            limits:
+              cpu: 100m
+              memory: 100Mi
+
+          env:
+            - name: REDIS_HOST
+              value: "redis-service"
+          ports:
+            - containerPort: 5000
+              name: flask
+
+      restartPolicy: Always
