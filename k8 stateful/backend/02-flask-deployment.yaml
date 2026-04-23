@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: flask
-          image: aakashb1408/sify-assessment-backend:v1.0
+          image: aakashb1408/sify-assessment-backend:v1.1
           resources:
             requests:
               cpu: 50m

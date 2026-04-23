@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: aakashb1408/sify-assessment-frontend:v1.1
+          image: aakashb1408/sify-assessment-frontend:v1.2
           resources:
             requests:
               cpu: 50m
