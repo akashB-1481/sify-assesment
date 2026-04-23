@@ -16,5 +16,13 @@ def api():
     count = r.incr("hits")
     return jsonify({"hits": count})
 
+@app.route("/health")
+def health():
+    try:
+        r.ping()
+        return {"status": "ok"}, 200
+    except:
+        return {"status": "fail"}, 500    
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0" , port=5000)        

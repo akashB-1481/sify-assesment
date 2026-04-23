@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: redis-service
+  namespace: db-ns
+spec:
+  selector:
+    ClusterIP: none
+    app: redis
+  ports:
+    - name: redis-port
+      port: 6379
