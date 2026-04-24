@@ -25,12 +25,12 @@ spec:
             - name: redis-storage
               mountPath: /data
 
-    volumeClaimTemplates:
-        - metadata:
-            name: redis-storage
-          spec:
-            accessModes: ["ReadWriteOnce"]
-            storageClassName: redis-storage-class
-            resources:
-              requests:
-                storage: 50Mi  
+  volumeClaimTemplates:
+      - metadata:
+          name: redis-storage
+        spec:
+          accessModes: ["ReadWriteOnce"]
+          storageClassName: redis-storage-class
+          resources:
+            requests:
+              storage: 50Mi  
