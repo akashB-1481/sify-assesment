@@ -4,9 +4,11 @@ metadata:
   name: redis-service
   namespace: db-ns
 spec:
+  type: ClusterIP
+  ClusterIP: None
   selector:
     app: redis
-  ClusterIP: None
+
   ports:
     - name: redis-port
       port: 6379
