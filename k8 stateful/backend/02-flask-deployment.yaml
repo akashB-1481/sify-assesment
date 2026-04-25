@@ -30,7 +30,7 @@ spec:
             httpGet:
               path: /health
               port: 5000
-            initialDelaySeconds: 5
+            initialDelaySeconds: 15
             timeoutSeconds: 5
             successThreshold: 1
             failureThreshold: 3
@@ -39,7 +39,7 @@ spec:
             httpGet:
               path: /health
               port: 5000
-            initialDelaySeconds: 5
+            initialDelaySeconds: 10
             timeoutSeconds: 2
             successThreshold: 1
             failureThreshold: 3
@@ -48,5 +48,5 @@ spec:
             - configMapRef:
                 name: flask-redis-cm
           ports:
-            - containerPort: 80
+            - containerPort: 5000
               name: flask
