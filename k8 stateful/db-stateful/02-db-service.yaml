@@ -4,7 +4,6 @@ metadata:
   name: redis-service
   namespace: db-ns
 spec:
-  type: ClusterIP
   ClusterIP: None
   selector:
     app: redis
