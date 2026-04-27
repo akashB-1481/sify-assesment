@@ -11,8 +11,8 @@ spec:
   persistentVolumeReclaimPolicy: Recycle
 
   nfs:
-    path: /eks/data
-    server: 192.168.16.214
+    path: /data/k8s
+    server: 192.168.16.199
 
 ---
 apiVersion: v1
