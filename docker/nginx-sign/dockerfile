@@ -1,2 +1,4 @@
-FROM nginx:1.30-perl
+FROM FROM nginx:alpine
 COPY index.html /usr/share/nginx/html/index.html
+ENV LANG=C.UTF-8
+ENV LC_ALL=C.UTF-8
