@@ -7,60 +7,65 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
     <style>
-      body {
-        margin: 0;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        background: linear-gradient(135deg, #667eea, #764ba2);
-        color: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-      }
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ff512f, #dd2476); /* red → pink */
+    color: #fff8f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
 
-      .container {
-        text-align: center;
-        background: rgba(255, 255, 255, 0.1);
-        padding: 40px;
-        border-radius: 16px;
-        backdrop-filter: blur(10px);
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-      }
+  .container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.12);
+    padding: 45px;
+    border-radius: 18px;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
 
-      h1 {
-        margin-bottom: 10px;
-        font-size: 2.5rem;
-      }
+  h1 {
+    margin-bottom: 10px;
+    font-size: 2.6rem;
+    font-weight: 600;
+    color: #ffffff;
+  }
 
-      p {
-        font-size: 1.2rem;
-        margin-bottom: 20px;
-      }
+  p {
+    font-size: 1.15rem;
+    margin-bottom: 25px;
+    color: #ffe4e1; /* soft warm white */
+  }
 
-      button {
-        background: #ff7a18;
-        background: linear-gradient(45deg, #ff7a18, #ffb347);
-        border: none;
-        padding: 12px 24px;
-        font-size: 1rem;
-        color: #fff;
-        border-radius: 25px;
-        cursor: pointer;
-        transition:
-          transform 0.2s ease,
-          box-shadow 0.2s ease;
-      }
+  button {
+    background: linear-gradient(45deg, #ffb347, #ffcc33); /* yellow/orange pop */
+    border: none;
+    padding: 12px 26px;
+    font-size: 1rem;
+    color: #5a1a00; /* darker text for contrast */
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 15px rgba(255, 180, 71, 0.5);
+  }
 
-      button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      }
+  button:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 25px rgba(255, 180, 71, 0.7);
+  }
 
-      #output {
-        margin-top: 20px;
-        font-size: 1.4rem;
-        font-weight: bold;
-      }
+  #output {
+    margin-top: 20px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #fff176; /* bright yellow highlight */
+  }
     </style>
   </head>
 
