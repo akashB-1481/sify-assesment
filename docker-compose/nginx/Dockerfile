@@ -5,4 +5,4 @@ COPY nginx.conf /etc/nginx/nginx.conf
 COPY index-css.html /usr/share/nginx/html/index.html
 
 ENV LANG=C.UTF-8
-ENV LC_ALL=C.UTF-8
+ENV LC_ALL=C.UTF-8  

@@ -9,7 +9,7 @@ spec:
   selector:
     matchLabels:
       app: nginx
-  replicas: 1
+  replicas: 3
 
   template:
     metadata:
@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: aakashb1408/sify-assessment-frontend:v1.9
+          image: aakashb1408/sify-assessment-frontend:v1.8
           resources:
             requests:
               cpu: 50m
